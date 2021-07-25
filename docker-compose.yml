@@ -1,0 +1,35 @@
+version: '3.4'
+
+services:
+  www:
+    image: ${IMAGE_MARKETING}:${IMAGE_MARKETING_VER}
+    networks:
+      - lan
+    ports:
+      - 81:81
+    labels:
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:${APP_SITE_MARKETING}"
+      - "traefik.port=81"
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - VERSION=${VERSION}
+      - APP_LISTEN_MARKETING=${APP_LISTEN_MARKETING}
+      - URI_API=${URI_API}
+      - URI_STATIC=${URI_STATIC}
+      - HOST_CONTRACTS=${HOST_CONTRACTS}
+      - DB_USER=${DB_USER}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_NAME=${DB_NAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+    build:
+      context: .
+
+
+networks:
+  lan:
+    external:
+      name: ${DCAPE_NET}

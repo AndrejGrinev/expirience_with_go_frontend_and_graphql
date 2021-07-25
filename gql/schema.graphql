@@ -1,0 +1,44 @@
+type Adsession {
+  sid:        ID
+  face_id:    Int!
+  face_type:  Int!
+  face_name:  String!
+  company_id: Int!
+}
+
+type ModerInviteData {
+  id:                      ID
+  type:                    Int!
+  isAuction:               Bool!
+  state:                   Int!
+  title:                   String!
+  org_companyid:           Int!
+  org_testing:             Int!
+  company_country_id:      Int!
+  company_region_id:       Int!
+  company_area_id:         Int!
+  company_country_name:    String!
+  company_region_name:     String!
+  company_area_name:       String!
+  tender_country_id:       Int!
+  tender_region_id:        Int!
+  tender_area_id:          Int!
+  tender_country_name:     String!
+  tender_region_name:      String!
+  tender_area_name:        String!
+  dt:                      String!
+  count_repeat_all:        Int!
+  company_lgt_invite:      Int!
+  count_lgt_invite:        Int!
+  tender_invite_admin:     Bool!
+  access_org_to_marketing: Bool!
+}
+
+schema {
+    query: Query
+}
+
+type Query {
+  adsession(sid: String!, userip: String!): Adsession
+  moderInvite(id: Int!): ModerInviteData
+}

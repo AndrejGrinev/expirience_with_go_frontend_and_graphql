@@ -1,0 +1,16 @@
+{{define "page_path"}}
+
+{{$sidstr      := ToStr .Sid}}
+{{$tenderidstr := ToStr .Tenderid}}
+{{$pagepath    := ConcatStr `&nbsp;<a href="/login.shtml?sid=` $sidstr `" title="Кабинет пользователя">Кабинет пользователя</a>`}}
+
+{{if eq .PageId 1}}
+    {{$pagepath = ConcatStr `&nbsp;<a href="/login.shtml?sid=` $sidstr `" title="Кабинет пользователя">Кабинет пользователя</a> //&nbsp;<a href="/bay.shtml?sid=` $sidstr `" class="small_href">Купить</a> //&nbsp;<a href="/tenders_list.shtml?sid=` $sidstr `&companyid=&tenderstate=%3C3&mode=` .Mode `" class="small_href">Мои конкурсы на закупку</a> //&nbsp;<a href="/view_tender.shtml?sid=` $sidstr `&tenderid=` $tenderidstr `&mode=` .Mode `" class="small_href">` .TenderTitle `</a> //&nbsp;<b>Список компаний, получивших приглашения к тендеру</b>`}}
+{{end}}
+
+            <div id="Path">
+              <div id="PathStart">
+                <p>{{ToHtml ($pagepath)}}</p>
+              </div>
+            </div>
+{{end}}
