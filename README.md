@@ -1,3 +1,24 @@
+Это была проба пера на Go - взята не самая простая страница из монолита ТендерПро, переписана на golang, использовано родное апи + graphQL.
+
+---
+Использованы след.инструменты:
+* makefile
+* docker
+* [dcape](https://github.com/dopos/dcape)
+* traefik
+
+Пакеты:
+* log - для логирования
+* jackc/pgx/v4 - для работы с базой postgresql
+* jessevdk/go-flags - для работы с настройками
+*  net/http - клиент http
+*  html/template - шаблонизатор
+*  github.com/graphql-go/graphql - поддержка graphql
+*  testing - для тестов
+*  errors - для создания описания новых ошибок
+
+---
+
 # Основная страница маркетинга на GO
 
 оригинал - **/work/support/SUXX/moder_tender_company_invite.suxx**
